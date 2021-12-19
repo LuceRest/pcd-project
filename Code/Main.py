@@ -2,7 +2,7 @@ import cv2 as cv
 import numpy as np
 
 
-imgPath="Resource\Image\Kuning-Back\image 7.jpg"
+imgPath="Resource\Image\Kuning-Back\image 1.jpg"
 
 img = cv.imread(imgPath)
 
