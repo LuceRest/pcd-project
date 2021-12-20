@@ -38,12 +38,13 @@ cv.circle(imgResult, (xMid,yRec), 5, (0,255,255), cv.FILLED)
 
 xRec =  xMid - 25
 yRec = yRec - 25
-cv.rectangle(imgResult, (xRec,yRec), (xRec+50, yRec+50), (255,0,0), 2)
+widthRec, heightRec = 50, 50
+cv.rectangle(imgResult, (xRec,yRec), (xRec+widthRec, yRec+heightRec), (255,0,0), 2)
 
 
 # ROI
 
-imgCrop = imgResult[xRec:xRec+50, yRec:yRec+50]
+imgCrop = imgResult[xRec:xRec+widthRec, yRec:yRec+heightRec]
 
 
 cv.imshow("Img Original",img)
