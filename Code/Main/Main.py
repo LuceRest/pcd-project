@@ -61,14 +61,17 @@ def drawRectangle(img, xMid, yMid):
     cv.circle(img, (xMid,yRec), 5, (0,255,255), cv.FILLED)
     cv.rectangle(img, (xRec,yRec), (xRec+wRec, yRec+hRec), (255,0,0), 2)
 
-def getResult(img):
+def getColorObject():
     hueMin = int(sldHueMin.get())
     satMin = int(sldSatMin.get())
     valueMin = int(sldValueMin.get())
     hueMax = int(sldHueMax.get())
     satMax = int(sldSatMax.get())
     valueMax = int(sldValueMax.get())
-    
+    return hueMin, satMin, valueMin, hueMax, satMax, valueMax
+
+def getResult(img,):
+    hueMin, satMin, valueMin, hueMax, satMax, valueMax = getColorObject()
     imgHSV = cv.cvtColor(img, cv.COLOR_BGR2HSV)
     lower = np.array([hueMin, satMin, valueMin])
     upper = np.array([hueMax, satMax, valueMax])
@@ -84,6 +87,8 @@ def getRoi(img):
     imgRoi = img[xRec:xRec+wRec, yRec:yRec+hRec]
     return imgRoi
     
+
+
 def btnBrowseClicked():
     global fln
 
@@ -95,18 +100,15 @@ def btnBrowseClicked():
                                         ("JFIF File", "*.jfif"))
                                     )
     
-    img = opencv2Pill(resizeImg(cv.imread(fln), 354, 472))
-    setOriginal(img)
+    img = cv.imread(fln)
+    imgShow = opencv2Pill(resizeImg(img, 354, 472))
+    
+    setOriginal(imgShow)
 
 def sldMove(e):
     global fln
     
-    hueMin = int(sldHueMin.get())
-    satMin = int(sldSatMin.get())
-    valueMin = int(sldValueMin.get())
-    hueMax = int(sldHueMax.get())
-    satMax = int(sldSatMax.get())
-    valueMax = int(sldValueMax.get())
+    hueMin, satMin, valueMin, hueMax, satMax, valueMax = getColorObject()
     
     lblHueMin.configure(text=f'HUE Min : {hueMin}')
     lblSatMin.configure(text=f'SAT Min : {satMin}')
@@ -116,18 +118,19 @@ def sldMove(e):
     lblValueMax.configure(text=f'VALUE Max : {valueMax}')
     
     img = cv.imread(fln)
-    imgResult = opencv2Pill(resizeImg(getResult(img), 354, 472))
+    imgResult = getResult(img)
+    imgShow = opencv2Pill(resizeImg(imgResult, 354, 472))
     
-    setResult(imgResult)
+    setResult(imgShow)
     
 def btnRoiClicked():
     global fln
     
     imgResult = getResult(cv.imread(fln))
     imgRoi = getRoi(imgResult)
-    imgRoi = opencv2Pill(resizeImg(imgRoi, 100, 100))
+    imgShow = opencv2Pill(resizeImg(imgRoi, 100, 100))
     
-    setRoi(imgRoi)
+    setRoi(imgShow)
 
 def btnSaveClicked():
     global fln
