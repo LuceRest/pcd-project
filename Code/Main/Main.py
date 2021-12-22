@@ -5,7 +5,7 @@ from tkinter import *
 from tkinter import messagebox
 from tkinter import filedialog
 from tkinter import ttk
-from ttkbootstrap import Style
+from ttkbootstrap import Style          # ttkbootstrap version 0.5.1
 import tkinter as tk
 from PIL import Image, ImageTk
 

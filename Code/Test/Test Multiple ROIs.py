@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
  #image_path
-img_path="Resource\image 4.jpg"
+img_path="Image\image (6).jpg"
 
 #read image
 img_raw = cv2.imread(img_path)
