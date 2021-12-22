@@ -2,8 +2,9 @@ import cv2 as cv
 import numpy as np
 
 
+imgPath="Image\image (6).jfif"
+# imgPath="Image\image (6).png"
 # imgPath= "Image\image 1.jpg"
-imgPath="Image\image (6).png"
 
 img = cv.imread(imgPath)
 
