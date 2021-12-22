@@ -47,11 +47,11 @@ cv.rectangle(imgResult, (xRec,yRec), (xRec+widthRec, yRec+heightRec), (255,0,0),
 # ROI
 
 imgCrop = imgResult[xRec:xRec+widthRec, yRec:yRec+heightRec]
-
+cv.imwrite('Image no 16', imgCrop)
 
 cv.imshow("Img Original",img)
 cv.imshow('ImgResult', imgResult)
-cv.imshow('imgCrop', imgCrop)
+# cv.imshow('imgCrop', imgCrop)
 
 cv.waitKey(0)
 
