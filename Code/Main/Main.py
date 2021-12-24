@@ -1,3 +1,4 @@
+from typing import IO
 import cv2 as cv
 import numpy as np
 import os
@@ -70,7 +71,24 @@ def getColorObject():
     valueMax = int(sldValueMax.get())
     return hueMin, satMin, valueMin, hueMax, satMax, valueMax
 
-def getResult(img,):
+def getFileName(path):
+    return path.split('/')[-1]
+
+def writeData(fileName, data): 
+    try:   
+        fileFull = open("Code/Data/Name & Value.txt",'a')
+        fileValue = open("Code/Data/Value.txt",'a')
+
+        fileFull.write(f'{fileName} \t: {data}\n')
+        fileValue.write(f'{data}\n')
+        print(f'{fileName} \t: {data}')
+        print(f'{data}\n')
+        messagebox.showinfo('Notification', 'Write data successfully!')
+    except IOError:
+        messagebox.showerror('Error', 'Write data failed!')
+
+
+def getResult(img):
     hueMin, satMin, valueMin, hueMax, satMax, valueMax = getColorObject()
     imgHSV = cv.cvtColor(img, cv.COLOR_BGR2HSV)
     lower = np.array([hueMin, satMin, valueMin])
@@ -99,6 +117,8 @@ def btnBrowseClicked():
                                         ("JPG File", "*.jpg"),
                                         ("JFIF File", "*.jfif"))
                                     )
+    
+    print(f'fln : {fln}\n')
     
     img = cv.imread(fln)
     imgShow = opencv2Pill(resizeImg(img, 354, 472))
@@ -139,14 +159,20 @@ def btnSaveClicked():
     imgRoi = getRoi(imgResult)
     imgSave = opencv2Pill(resizeImg(imgRoi, 100, 100))
 
+    hueMin, satMin, valueMin, hueMax, satMax, valueMax = getColorObject()
+    data = [hueMin, satMin, valueMin, hueMax, satMax, valueMax]
+    fileName = getFileName(fln)
+    
     extension = [("JPG File", "*.jpg")]
     file = filedialog.asksaveasfile(filetypes = extension, defaultextension = extension)
     if file:
         imgSave.save(file)
         messagebox.showinfo('Notification', 'Image save successfully!')
+        writeData(fileName, data)
     else:
         messagebox.showerror('Error', 'Image save failed!')
-        
+    
+    
         
 
 if __name__ == '__main__':
