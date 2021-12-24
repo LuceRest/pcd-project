@@ -2,7 +2,7 @@ import cv2 as cv
 import numpy as np
 
 
-imgPath="Image\image (6).jfif"
+imgPath="Image\Test\image 1.jpg"
 # imgPath="Image\image (6).png"
 # imgPath= "Image\image 1.jpg"
 
@@ -17,9 +17,11 @@ yMid = int(img.shape[0] / 2)
 
 cv.circle(img, (xMid,yMid), 5, (0,255,0), cv.FILLED)
 
-# print(f'X Mid \t: {xMid}\n')
-# print(f'Y Mid \t: {yMid}\n')
-# print(f'shape \t: {img.shape}\n')
+print(f'X \t: {x}\n')
+print(f'Y \t: {y}\n')
+print(f'X Mid \t: {xMid}\n')
+print(f'Y Mid \t: {yMid}\n')
+print(f'shape \t: {img.shape}\n')
 
 
 # Color Detection
@@ -32,26 +34,51 @@ imgResult = cv.bitwise_and(img, img, mask = imgMask)
 cv.circle(imgResult, (xMid,yMid), 5, (0,0,255), cv.FILLED)
 
 
-# Rectangle
+# Rectangle Bawah
 
 # xRec = xMid + 20
-yRec = yMid + 50
+xRec = xMid
+yRec = yMid + 30
+print(f'xRec\t: {xRec}\n')      # 50%
+print(f'yRec\t: {yRec}\n')      # 58%
 cv.circle(imgResult, (xMid,yRec), 5, (0,255,255), cv.FILLED)
+
+'''
+Untuk "Image\Test\image 1.jpg"
+Turun 30px => (xRec,yRec) =  (50%, 55%)
+Turun 50px => (xRec,yRec) =  (50%, 58%)
+'''
 
 xRec =  xMid - 25
 yRec = yRec - 25
 widthRec, heightRec = 50, 50
 cv.rectangle(imgResult, (xRec,yRec), (xRec+widthRec, yRec+heightRec), (255,0,0), 2)
 
+# ------------------------------------------------------
+
+# Rectangle Kanan
+
+# xRec = xMid + 20
+# xRec = xMid + 50
+# yRec = yMid
+# print(f'xRec\t: {xRec}\n')      # 50%
+# print(f'yRec\t: {yRec}\n')      # 58%
+# cv.circle(imgResult, (xMid,yRec), 5, (0,255,255), cv.FILLED)
+
+# xRec =  xMid - 25
+# yRec = yRec - 25
+# widthRec, heightRec = 50, 50
+# cv.rectangle(imgResult, (xRec,yRec), (xRec+widthRec, yRec+heightRec), (255,0,0), 2)
+
 
 # ROI
 
-imgCrop = imgResult[xRec:xRec+widthRec, yRec:yRec+heightRec]
-cv.imwrite('Image no 16', imgCrop)
+imgCrop = img[yRec:yRec+heightRec, xRec:xRec+widthRec]
+# cv.imwrite('Image no 16', imgCrop)
 
 cv.imshow("Img Original",img)
 cv.imshow('ImgResult', imgResult)
-# cv.imshow('imgCrop', imgCrop)
+cv.imshow('imgCrop', imgCrop)
 
 cv.waitKey(0)
 
