@@ -36,8 +36,8 @@ cv.circle(imgResult, (xMid,yMid), 5, (0,0,255), cv.FILLED)
 
 # Rectangle Bawah
 
-# xRec = xMid - 75
-xRec = int((40/100) * x)
+# xRec = xMid - 125
+xRec = int((34/100) * x)
 yRec = yMid
 # yRec = int((52/100) * y)
 print(f'xRec \t: {xRec}\n')      # 50%
@@ -46,10 +46,13 @@ cv.circle(imgResult, (xRec,yRec), 5, (0,255,255), cv.FILLED)
 
 '''
 Untuk "Image\Test\image 1.jpg"
-Turun 10px  => (xRec,yRec) =  (50%, 52%)
-Turun 30px  => (xRec,yRec) =  (50%, 55%)
-Turun 50px  => (xRec,yRec) =  (50%, 58%)
-Kiri 75px   => (xRec,yRec) =  (40%, 50%)
+    Turun 10px  => (xRec,yRec) =  (50%, 52%)
+    Turun 30px  => (xRec,yRec) =  (50%, 55%)
+    Turun 50px  => (xRec,yRec) =  (50%, 58%)
+    Kiri 75px   => (xRec,yRec) =  (40%, 50%)
+    Kiri 85px   => (xRec,yRec) =  (39%, 50%)
+    Kiri 100px  => (xRec,yRec) =  (37%, 50%)
+    Kiri 125px  => (xRec,yRec) =  (34%, 50%)
 '''
 
 xRec =  xRec - 25
