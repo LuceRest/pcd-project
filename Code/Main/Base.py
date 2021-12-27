@@ -36,22 +36,23 @@ cv.circle(imgResult, (xMid,yMid), 5, (0,0,255), cv.FILLED)
 
 # Rectangle Bawah
 
-# xRec = xMid + 20
-xRec = xMid
-# yRec = yMid + 10
-yRec = int((52/100) * y)
+# xRec = xMid - 75
+xRec = int((40/100) * x)
+yRec = yMid
+# yRec = int((52/100) * y)
 print(f'xRec \t: {xRec}\n')      # 50%
 print(f'yRec \t: {yRec}\n')      # 58%
-cv.circle(imgResult, (xMid,yRec), 5, (0,255,255), cv.FILLED)
+cv.circle(imgResult, (xRec,yRec), 5, (0,255,255), cv.FILLED)
 
 '''
 Untuk "Image\Test\image 1.jpg"
-Turun 10px => (xRec,yRec) =  (50%, 51%)
-Turun 30px => (xRec,yRec) =  (50%, 55%)
-Turun 50px => (xRec,yRec) =  (50%, 58%)
+Turun 10px  => (xRec,yRec) =  (50%, 52%)
+Turun 30px  => (xRec,yRec) =  (50%, 55%)
+Turun 50px  => (xRec,yRec) =  (50%, 58%)
+Kiri 75px   => (xRec,yRec) =  (40%, 50%)
 '''
 
-xRec =  xMid - 25
+xRec =  xRec - 25
 yRec = yRec - 25
 widthRec, heightRec = 50, 50
 cv.rectangle(img, (xRec,yRec), (xRec+widthRec, yRec+heightRec), (255,0,0), 2)
@@ -76,7 +77,7 @@ cv.rectangle(imgResult, (xRec,yRec), (xRec+widthRec, yRec+heightRec), (255,0,0),
 
 # ROI
 
-imgCrop = img[yRec:yRec+heightRec, xRec:xRec+widthRec]
+imgCrop = imgResult[yRec:yRec+heightRec, xRec:xRec+widthRec]
 # cv.imwrite('Image no 16', imgCrop)
 
 cv.imshow("Img Original",img)

@@ -21,7 +21,7 @@ def resizeImg(img, width, height):
 
 os.getcwd()
 folderSource = "D:/Kuliah Online/Pengolahan Citra Digital/PCD Project/Image/Revision/Resource/"
-folderResult = "D:/Kuliah Online/Pengolahan Citra Digital/PCD Project/Image/Revision/Result/2nd Test/"
+folderResult = "D:/Kuliah Online/Pengolahan Citra Digital/PCD Project/Image/Revision/Result/3rd Test/"
 
 fileFull = open("Code/Data/Name & Value.txt",'r')
 fileValue = open("Code/Data/Value (Without Enter).txt",'r')
@@ -59,22 +59,23 @@ for values in fileValue:
         # cv.circle(imgResult, (xMid,yMid), 5, (0,0,255), cv.FILLED)
 
 
-        # Rectangle Bawah
+        # Rectangle
 
         # xRec = xMid + 20
-        xRec = xMid
-        # yRec = yMid + 10
-        yRec = int((52/100) * y)
+        xRec = int((40/100) * x)
+        yRec = yMid
+        # yRec = int((52/100) * y)
         # cv.circle(imgResult, (xMid,yRec), 5, (0,255,255), cv.FILLED)
 
         '''
         Untuk "Image\Test\image 1.jpg"
-        Turun 10px => (xRec,yRec) =  (50%, 52%)
-        Turun 30px => (xRec,yRec) =  (50%, 55%)
-        Turun 50px => (xRec,yRec) =  (50%, 58%)
+        Turun 10px  => (xRec,yRec) =  (50%, 52%)
+        Turun 30px  => (xRec,yRec) =  (50%, 55%)
+        Turun 50px  => (xRec,yRec) =  (50%, 58%)
+        Kiri 75px   => (xRec,yRec) =  (40%, 50%)
         '''
 
-        xRec =  xMid - 25
+        xRec =  xRec - 25
         yRec = yRec - 25
         widthRec, heightRec = 50, 50
         # cv.rectangle(img, (xRec,yRec), (xRec+widthRec, yRec+heightRec), (255,0,0), 2)
