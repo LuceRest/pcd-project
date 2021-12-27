@@ -50,15 +50,15 @@ def drawCircleMid(img):
     yMid = getYMid(img)
     cv.circle(img, (xMid,yMid), 5, (0,0,255), cv.FILLED)
     
-def getRectanglePos(xMid, yMid):
-    yRec = yMid + 50
+def getRectanglePos(img, xMid, yMid):
+    yRecMid = int((55/100) * img.shape[0])
     xRec =  xMid - 25
-    yRec = yRec - 25
+    yRec = yRecMid - 25
     wRec, hRec = 50, 50
     return xRec, yRec, wRec, hRec
 
 def drawRectangle(img, xMid, yMid):
-    xRec, yRec, wRec, hRec = getRectanglePos(xMid, yMid)
+    xRec, yRec, wRec, hRec = getRectanglePos(img, xMid, yMid)
     cv.circle(img, (xMid,yRec), 5, (0,255,255), cv.FILLED)
     cv.rectangle(img, (xRec,yRec), (xRec+wRec, yRec+hRec), (255,0,0), 2)
 
@@ -79,7 +79,7 @@ def writeData(fileName, data):
         fileFull = open("Code/Data/Name & Value.txt",'a')
         fileValue = open("Code/Data/Value.txt",'a')
 
-        fileFull.write(f'{fileName} \t: {data}\n')
+        fileFull.write(f'{fileName}:{data}\n')
         fileValue.write(f'{data}\n')
         print(f'{fileName} \t: {data}')
         print(f'{data}\n')
@@ -101,8 +101,8 @@ def getResult(img):
 def getRoi(img):
     xMid = getXMid(img)
     yMid = getYMid(img)
-    xRec, yRec, wRec, hRec = getRectanglePos(xMid, yMid)
-    imgRoi = img[xRec:xRec+wRec, yRec:yRec+hRec]
+    xRec, yRec, wRec, hRec = getRectanglePos(img, xMid, yMid)
+    imgRoi = img[yRec:yRec+hRec, xRec:xRec+wRec]
     return imgRoi
     
 
@@ -121,6 +121,10 @@ def btnBrowseClicked():
     print(f'fln : {fln}\n')
     
     img = cv.imread(fln)
+    
+    xMid = getXMid(img)
+    yMid = getYMid(img)
+    # img = drawRectangle(img, xMid, yMid)    
     imgShow = opencv2Pill(resizeImg(img, 354, 472))
     
     setOriginal(imgShow)
