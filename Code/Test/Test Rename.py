@@ -1,7 +1,7 @@
 import os
 
-os.getcwd()
 folder = "D:/Kuliah Online/Pengolahan Citra Digital/PCD Project/Image/After/Resource/"
+os.getcwd()
 num = 71
 # listFile = []
 

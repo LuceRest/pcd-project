@@ -38,16 +38,15 @@ cv.circle(imgResult, (xMid,yMid), 5, (0,0,255), cv.FILLED)
 
 # xRec = xMid + 20
 xRec = xMid
-# yRec = yMid + 30
-persen = int((55/100) * y)
-yRec = persen
+# yRec = yMid + 10
+yRec = int((52/100) * y)
 print(f'xRec \t: {xRec}\n')      # 50%
 print(f'yRec \t: {yRec}\n')      # 58%
-print(f'persen yRec \t: {persen}\n')
 cv.circle(imgResult, (xMid,yRec), 5, (0,255,255), cv.FILLED)
 
 '''
 Untuk "Image\Test\image 1.jpg"
+Turun 10px => (xRec,yRec) =  (50%, 51%)
 Turun 30px => (xRec,yRec) =  (50%, 55%)
 Turun 50px => (xRec,yRec) =  (50%, 58%)
 '''
