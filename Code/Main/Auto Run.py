@@ -90,53 +90,48 @@ for values in fileValue:
         imgCrop = resizeImg(imgCrop, 100, 100)
 
         # Menyimpan Roi
-        if num >= 1 & num < 11:
-            newNameRoi = '0' + str(num) + '_roi_' +'front_' + 'red'
-        elif num >= 11 & num < 21:
-            newNameRoi = str(num) + '_roi_' +'front_' + 'maroon'
-        elif num >= 21 & num < 31:
-            newNameRoi = str(num) + '_roi_' +'front_' + "orange"
-        elif num >= 31 & num < 41:
-            newNameRoi = str(num) + '_roi_' +'front_' + "yellow"
-        elif num >= 41 & num < 51:
-            newNameRoi = str(num) + '_roi_' +'back_' + 'red'
-        elif num >= 51 & num < 61:
-            newNameRoi = str(num) + '_roi_' +'back_' + "maroon"
-        elif num >= 61 & num < 71:
-            newNameRoi = str(num) + '_roi_' +'back_' + "orange"
-        elif num >= 71 & num < 81:
-            newNameRoi = str(num) + '_roi_' +'back_' "yellow"
-        cv.imwrite(folderResult + newNameRoi + '.jpg', imgCrop)
-        print(f'Roi {newNameRoi}.jpg BERHASIL!')
+        if num >= 1 and num < 11:
+            cv.imwrite(folderResult + '0' + str(num) + '_roi_' +'front_' + 'red' + '.jpg', imgCrop)
+        elif num >= 11 and num < 21:
+            print('11-20 \n')
+            cv.imwrite(folderResult + str(num) + '_roi_' +'front_' + 'maroon' + '.jpg', imgCrop)
+        elif num >= 21 and num < 31:
+            cv.imwrite(folderResult + str(num) + '_roi_' +'front_' + "orange" + '.jpg', imgCrop)
+        elif num >= 31 and num < 41:
+            cv.imwrite(folderResult + str(num) + '_roi_' +'front_' + "yellow" + '.jpg', imgCrop)
+        elif num >= 41 and num < 51:
+            cv.imwrite(folderResult + str(num) + '_roi_' +'back_' + 'red' + '.jpg', imgCrop)
+        elif num >= 51 and num < 61:
+            cv.imwrite(folderResult + str(num) + '_roi_' +'back_' + "maroon" + '.jpg', imgCrop)
+        elif num >= 61 and num < 71:
+            cv.imwrite(folderResult + str(num) + '_roi_' +'back_' + "orange" + '.jpg', imgCrop)
+        elif num >= 71 and num < 81:
+            cv.imwrite(folderResult + str(num) + '_roi_' +'back_' "yellow" + '.jpg', imgCrop)
+        # cv.imwrite(folderResult + newNameRoi + '.jpg', imgCrop)
+        # print(f'Roi {newNameRoi}.jpg BERHASIL!')
 
         # Menyimpan Citra + Boundingbox
         cv.rectangle(img, (xRec,yRec), (xRec+widthRec, yRec+heightRec), (255,0,0), 2)
-        if num >= 1 & num < 11:
-            newNameBb = '0' + str(num) + '_bb_' +'front_' + 'red'
-            cv.imwrite(folderBox + newNameBb + '.jpg', img)
-        elif num >= 11 & num < 21:
-            newNameBb = str(num) + '_bb_' +'front_' + 'maroon'
-            cv.imwrite(folderBox + newNameBb + '.jpg', img)
-        elif num >= 21 & num < 31:
-            newNameBb = str(num) + '_bb_' +'front_' + "orange"
-            cv.imwrite(folderBox + newNameBb + '.jpg', img)
-        elif num >= 31 & num < 41:
-            newNameBb = str(num) + '_bb_' +'front_' + "yellow"
-            cv.imwrite(folderBox + newNameBb + '.jpg', img)
-        elif num >= 41 & num < 51:
-            newNameBb = str(num) + '_bb_' +'back_' + 'red'
-            cv.imwrite(folderBox + newNameBb + '.jpg', img)
-        elif num >= 51 & num < 61:
-            newNameBb = str(num) + '_bb_' +'back_' + "maroon"
-            cv.imwrite(folderBox + newNameBb + '.jpg', img)
-        elif num >= 61 & num < 71:
-            newNameBb = str(num) + '_bb_' +'back_' + "orange"
-            cv.imwrite(folderBox + newNameBb + '.jpg', img)
-        elif num >= 71 & num < 81:
-            newNameBb = str(num) + '_bb_' +'back_' "yellow"
-            cv.imwrite(folderBox + newNameBb + '.jpg', img)
+        if num >= 1 and num < 11:
+            cv.imwrite(folderBox + '0' + str(num) + '_bb_' +'front_' + 'red' + '.jpg', img)
+        elif num >= 11 and num < 21:
+            print('11-20 \n')
+            cv.imwrite(folderBox + str(num) + '_bb_' +'front_' + 'maroon' + '.jpg', img)
+        elif num >= 21 and num < 31:
+            print('21-30 \n')
+            cv.imwrite(folderBox + str(num) + '_bb_' +'front_' + "orange" + '.jpg', img)
+        elif num >= 31 and num < 41:
+            cv.imwrite(folderBox + str(num) + '_bb_' +'front_' + "yellow" + '.jpg', img)
+        elif num >= 41 and num < 51:
+            cv.imwrite(folderBox + str(num) + '_bb_' +'back_' + 'red' + '.jpg', img)
+        elif num >= 51 and num < 61:
+            cv.imwrite(folderBox + str(num) + '_bb_' +'back_' + "maroon" + '.jpg', img)
+        elif num >= 61 and num < 71:
+            cv.imwrite(folderBox + str(num) + '_bb_' +'back_' + "orange" + '.jpg', img)
+        elif num >= 71 and num < 81:
+            cv.imwrite(folderBox + str(num) + '_bb_' +'back_' "yellow" + '.jpg', img)
         
-        print(f'Citra + Boundingbox {newNameBb}.jpg BERHASIL!')
+        # print(f'Citra + Boundingbox {newNameBb}.jpg BERHASIL!')
 
         print(f'--------------------\n')
         num += 1
