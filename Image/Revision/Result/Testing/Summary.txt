@@ -1,0 +1,20 @@
+1st Test  ( Turun 30px => (50%, 55%) )
+- Sangat Baik 	: 35
+- Kurang Optimal	: 15
+- Tidak Baik		: 30
+
+2nd Test  ( Turun 10px => (50%, 52%) )
+- Sangat Baik 	: 33
+
+3rd Test ( Kiri 75px   => (40%, 50%) )
+- Sangat Baik 	: 39 / 42
+
+4th Test ( Kiri 85px   => (39%, 50%) )
+- Sangat Baik 	: 44
+
+5th Test ( Kiri 100px  => (37%, 50%) )
+- Sangat Baik 	: 55 / <50
+
+6th Test ( Kiri 125px  => (34%, 50%) )
+- Sangat Baik 	: 52
+

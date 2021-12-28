@@ -51,8 +51,10 @@ def drawCircleMid(img):
     cv.circle(img, (xMid,yMid), 5, (0,0,255), cv.FILLED)
     
 def getRectanglePos(img, xMid, yMid):
-    yRecMid = int((55/100) * img.shape[0])
-    xRec =  xMid - 25
+    xRecMid = int((34/100) * img.shape[1])
+    # yRecMid = int((55/100) * img.shape[0])
+    yRecMid = yMid
+    xRec =  xRecMid - 25
     yRec = yRecMid - 25
     wRec, hRec = 50, 50
     return xRec, yRec, wRec, hRec
