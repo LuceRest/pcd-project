@@ -1,0 +1,15 @@
+76_roi_back_yellow.jpg
+77_roi_back_yellow.jpg
+78_roi_back_yellow.jpg
+80_roi_back_yellow.jpg
+58_roi_back_maroon.jpg
+59_roi_back_maroon.jpg
+60_roi_back_maroon.jpg
+47_roi_back_red.jpg
+48_roi_back_red.jpg
+49_roi_back_red.jpg
+50_roi_back_red.jpg
+67_roi_back_orange.jpg
+68_roi_back_orange.jpg
+69_roi_back_orange.jpg
+70_roi_back_orange.jpg
