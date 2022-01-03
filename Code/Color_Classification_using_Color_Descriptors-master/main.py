@@ -14,8 +14,8 @@ import cv2
 import os
 
 BIN_SIZE = 16
-TEST_PATH = 'test'
-TRAIN_PATH = 'train'
+TEST_PATH = 'Code/Color_Classification_using_Color_Descriptors-master/dataset_80v20/test'
+TRAIN_PATH = 'Code/Color_Classification_using_Color_Descriptors-master/dataset_80v20/train'
 
 """ 
     This function is used to read images.
@@ -147,7 +147,7 @@ if __name__ == '__main__':
                 print(' ', color_name, image_name)
     normalize_moment_feature(train_data, BIN_SIZE * image.shape[2], image.shape[2])
     
-    model = KNeighborsClassifier(n_neighbors = 5)
+    model = KNeighborsClassifier(n_neighbors = 7)
     model.fit(train_data, train_label)
     
     print('<----------TEST START ---------->')
